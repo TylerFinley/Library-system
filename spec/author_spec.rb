@@ -34,4 +34,15 @@ describe(Author) do
     end
   end
 
+  describe('#update') do
+    it('lets you update authors in the database') do
+      author = Author.new({:first_name => "JK", :last_name => "Rowling", :id => nil})
+      author.save()
+      author.update({:first_name => "JRR", :last_name => "Tolkien"})
+      expect(author.first_name()).to(eq('JRR'))
+      expect(author.last_name()).to(eq('Tolkien'))
+    end
+  end
+
+
 end
