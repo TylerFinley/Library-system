@@ -13,6 +13,8 @@ get('/') do
   erb(:index)
 end
 
+####################  BOOKS  #######################
+
 get('/book/new') do
   erb(:book_form)
 end
@@ -56,4 +58,23 @@ delete("/books/:id") do
   @book.delete()
   @books = Book.all()
   erb(:books)
+end
+
+
+
+####################  PATRONS  #######################
+
+get('/patrons') do
+  @patrons = Patron.all()
+  erb(:patrons)
+end
+
+post('/patrons') do
+  name = params.fetch('name')
+  books_checkedout = params.fetch('books').to_i()
+  patron = Patron.new({:name => name, :books_checkedout => books_checkedout, :id => nil})
+  patron.save()
+  binding.pry
+  @patrons = Patron.all()
+  erb(:patrons)
 end

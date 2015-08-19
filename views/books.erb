@@ -1,4 +1,4 @@
-<h1>Books currently in catalog</h1>
+<h1>Books Currently in Catalog</h1>
 
   <% if @books.any?() %>
     <ul>
@@ -12,23 +12,39 @@
   <% end %>
 
 
+<div class="catalog">
+  <h1>Add Books to Catalog</h1>
 
-<h1>Add Books to Catalog</h1>
+  <form id="form_id" action="/books" method="post">
+    <div class="form-group">
 
-<form id="form_id" action="/books" method="post">
-  <div class="form-group">
+      <label for="title">Book Title:</label>
+      <input type="text" name="title" id="title" class='form-control'>
 
-    <label for="title">Book Title:</label>
-    <input type="text" name="title" id="title" class='form-control'>
+      <label for="author">Author:</label>
+      <input type="text" name="author" id="author" class='form-control'>
 
-    <label for="author">Author:</label>
-    <input type="text" name="author" id="author" class='form-control'>
+      <label for="genre">Genre:</label>
+      <select id="genre" name="genre" type="text">
+        <option value="Erotic Fiction">Erotic Fiction</option>
+        <option value="Erotic Non-Fiction">Erotic Non-Fiction</option>
+        <option value="Erotic Biographies">Erotic Biographies</option>
+        <option value="Erotic Fantasy">Erotic Fantasy</option>
+        <option value="Erotic Sci-Fi">Erotic Sci-Fi</option>
+        <option value="Erotic Mystery">Erotic Mystery</option>
+        <option value="Erotic Romance">Erotic Romance</option>
+        <option value="Erotic Thriller">Erotic Thriller</option>
+        <option value="Erotic Cookbooks">Erotic Cookbooks</option>
+        <option value="Erotic Horror">Erotic Horror</option>
+        <option value="Erotic Western">Erotic Western</option>
+        <option value="Erotic Comedy">Erotic Comedy</option>
+        <option value="Erotic History">Erotic History</option>
+      </select>
 
-    <label for="genre">Genre:</label>
-    <input type="text" name="genre" id="genre" class='form-control'>
+    </div>
+    <button class="btn" type="submit">Add Book</button>
+  </form>
 
-  </div>
-  <button class="btn" type="submit">Add Book</button>
-</form>
+  <a href="/"><button class="btn">Go Home</button></a>
 
-<a href="/"><button class="btn">Go Home</button></a>
+</div>

@@ -2,5 +2,5 @@
 <h2> Author: <%= @book.author %> </h2>
 <h2> Genre: <%= @book.genre %></h2>
 
-<p><a href="/book/<%= @book.id() %>/edit"><button class="btn">Edit <%= @book.title() %></button></a></p>
-<p><a href="/"><button class="btn">Main page</a></button></p>
+<button class="btn"><p><a href="/book/<%= @book.id() %>/edit">Edit <%= @book.title() %></a></p></button>
+<button class="btn"><p><a href="/">Main page</a></p></button>

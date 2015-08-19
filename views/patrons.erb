@@ -1,0 +1,31 @@
+<h1>Patrons registered in the Erotic Library</h1>
+
+<% if @patrons.any?() %>
+<ul>
+  <% @patrons.each() do |patron| %>
+  <li><a href="/patrons/<%= patron.id()%>"><%= patron.name() %></a></li>
+  <% end %>
+</ul>
+
+<% else %>
+<p>There are no patrons yet. ;)</p>
+<% end %>
+
+
+
+<h1>Add Patrons to Library</h1>
+
+<form id="form_id" action="/patrons" method="post">
+  <div class="form-group">
+
+    <label for="name">Patron Name:</label>
+    <input type="text" name="name" id="name" class='form-control'>
+
+    <label for="books_checkedout">Number of Books Checked Out:</label>
+    <input type="number" name="books_checkedout" id="books_checkedout" class='form-control'>
+
+  </div>
+  <button class="btn" type="submit">Add Patron</button>
+</form>
+
+<a href="/"><button class="btn">Go Home</button></a>
