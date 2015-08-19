@@ -44,5 +44,12 @@ describe(Author) do
     end
   end
 
-
+  describe('#delete') do
+    it('lets you delete a author from the database') do
+      author = Author.new({:first_name => "JK", :last_name => "Rowling", :id => nil})
+      author.save()
+      author.delete()
+      expect(Author.all()).to(eq([]))
+    end
+  end
 end
