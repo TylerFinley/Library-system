@@ -29,4 +29,14 @@ class Book
     result = DB.exec("INSERT INTO books (title, author, genre) VALUES ('#{@title}', '#{@author}','#{@genre}')RETURNING id;")
     @id = result.first().fetch("id").to_i()
   end
+
+  define_singleton_method(:find) do |id|
+    found_book = nil
+    Book.all().each() do |book|
+      if book.id().==(id)
+        found_book = book
+      end
+    end
+    found_book
+  end
 end

@@ -22,4 +22,14 @@ describe(Book) do
       expect(Book.all()).to(eq([book1]))
     end
   end
+
+  describe('.find') do
+    it('lets you find a book by its ID') do
+      book1 = Book.new({:title => "Harry Potter", :author => "JK Rowling", :genre => "fantasy", :id => nil })
+      book1.save()
+      book2 = Book.new({:title => "Harry Potter", :author => "JK Rowling", :genre => "fantasy", :id => nil })
+      book2.save()
+      expect(Book.find(book1.id())).to(eq(book1))
+    end
+  end
 end
