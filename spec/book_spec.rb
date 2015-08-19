@@ -14,4 +14,12 @@ describe(Book) do
       expect(book1).to(eq(book2))
     end
   end
+
+  describe('#save') do
+    it('lets you save the book to database') do
+      book1 = Book.new({:title => "Harry Potter", :author => "JK Rowling", :genre => "fantasy", :id => nil })
+      book1.save()
+      expect(Book.all()).to(eq([book1]))
+    end
+  end
 end
