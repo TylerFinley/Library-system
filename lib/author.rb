@@ -13,7 +13,7 @@ class Author
       first_name = author.fetch('first_name')
       last_name = author.fetch('last_name')
       id = author.fetch("id").to_i()
-      authors.push(Author.new({:title => title, :author => author, :genre => genre, :id => id}))
+      authors.push(Author.new({:first_name => first_name, :last_name => last_name, :id => id}))
     end
     authors
   end
@@ -22,4 +22,8 @@ class Author
     self.first_name().==(another_author.first_name()).&(self.last_name().==(another_author.last_name()))
   end
 
+  define_method(:save) do
+    result = DB.exec("INSERT INTO authors (first_name, last_name) VALUES ('#{@first_name}', '#{@last_name}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
+  end
 end

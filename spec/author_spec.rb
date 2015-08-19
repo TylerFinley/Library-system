@@ -14,4 +14,14 @@ describe(Author) do
       expect(author1).to(eq(author2))
     end
   end
+
+
+  describe('#save') do
+    it('lets you save the author to a book') do
+      author1 = Author.new({:first_name => "JK", :last_name => "Rowling"})
+      author1.save
+      expect(Author.all()).to(eq([author1]))
+    end
+  end
+
 end
