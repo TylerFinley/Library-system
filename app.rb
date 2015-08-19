@@ -78,3 +78,8 @@ post('/patrons') do
   @patrons = Patron.all()
   erb(:patrons)
 end
+
+get('/patrons/:id') do
+  @book = Patron.find(params.fetch('id').to_i)
+  erb(:patron)
+end

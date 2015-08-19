@@ -3,7 +3,8 @@
   <% if @books.any?() %>
     <ul>
       <% @books.each() do |book| %>
-        <li><a href="/book/<%= book.id()%>"><%= book.title() %></a></li>
+        <li><span class="glyphicon glyphicon-heart" aria-hidden="true" ></span> 
+          <a href="/book/<%= book.id()%>"><%= book.title() %></a></li>
       <% end %>
     </ul>
 

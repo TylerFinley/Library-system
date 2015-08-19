@@ -5,6 +5,10 @@ body {
   height: 100vh;
 }
 
+ul li {
+  list-style: none;
+}
+
 h1 {
   color: #464646;
 }
@@ -41,6 +45,7 @@ a {
 }
 
 input[type='text'],
+input[type="number"],
 textarea,
 #message {
   font-size: 1.25em;
@@ -51,6 +56,7 @@ textarea,
   box-shadow: none !important;
 }
 
-.catalog {
+.catalog,
+.patrons {
   text-align: center;
 }
