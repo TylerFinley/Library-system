@@ -16,8 +16,10 @@
   <button class="btn" type="submit">Update Book</button>
 </form>
 
+
+
 <form action="/books/<%= @book.id() %>" method="post">
   <input type="hidden" name="_method" value="delete">
 
-  <button type="submit">Delete Book</button>
+  <button class="btn" type="submit">Delete Book</button>
 </form>

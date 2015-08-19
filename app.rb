@@ -32,29 +32,28 @@ get('/books') do
   erb(:books)
 end
 
-get('/books/:id') do
+get('/book/:id') do
   @book = Book.find(params.fetch('id').to_i)
   erb(:book)
 end
 
-get('/books/:id/edit') do
+get('/book/:id/edit') do
   @book = Book.find(params.fetch('id').to_i)
   erb(:edit_book)
 end
 
-patch('books/:id') do
+patch('/books/:id') do
   title = params.fetch('title')
   genre = params.fetch('genre')
   author = params.fetch('author')
-  Binding.pry
   @book = Book.find(params.fetch("id").to_i())
   @book.update({:title => title, :author => author, :genre => genre, :id => nil})
-  erb(:book)
+  erb(:index)
 end
 
 delete("/books/:id") do
   @book = Book.find(params.fetch("id").to_i())
   @book.delete()
   @books = Book.all()
-  erb(:book)
+  erb(:books)
 end

@@ -3,7 +3,7 @@
   <% if @books.any?() %>
     <ul>
       <% @books.each() do |book| %>
-        <li><a href="/books/<%= book.id()%>"><%= book.title() %></a></li>
+        <li><a href="/book/<%= book.id()%>"><%= book.title() %></a></li>
       <% end %>
     </ul>
 
@@ -30,3 +30,5 @@
   </div>
   <button class="btn" type="submit">Add Book</button>
 </form>
+
+<a href="/"><button class="btn">Go Home</button></a>
