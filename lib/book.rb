@@ -39,4 +39,19 @@ class Book
     end
     found_book
   end
+
+  define_method(:update) do |attributes|
+    @title = attributes.fetch(:title)
+    @author = attributes.fetch(:author)
+    @genre = attributes.fetch(:genre)
+    @id = self.id()
+    DB.exec("UPDATE books SET title = '#{@title}' WHERE id = #{@id};")
+    DB.exec("UPDATE books SET author = '#{@author}' WHERE id = #{@id};")
+    DB.exec("UPDATE books SET genre = '#{@genre}' WHERE id = #{@id};")
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM books WHERE id = #{self.id()};")
+  end
+
 end

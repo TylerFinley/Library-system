@@ -1,0 +1,32 @@
+<h1>Books currently in catalog</h1>
+
+  <% if @books.any?() %>
+    <ul>
+      <% @books.each() do |book| %>
+        <li><a href="/books/<%= book.id()%>"><%= book.title() %></a></li>
+      <% end %>
+    </ul>
+
+  <% else %>
+    <p>There are no books available.</p>
+  <% end %>
+
+
+
+<h1>Add Books to Catalog</h1>
+
+<form id="form_id" action="/books" method="post">
+  <div class="form-group">
+
+    <label for="title">Book Title:</label>
+    <input type="text" name="title" id="title" class='form-control'>
+
+    <label for="author">Author:</label>
+    <input type="text" name="author" id="author" class='form-control'>
+
+    <label for="genre">Genre:</label>
+    <input type="text" name="genre" id="genre" class='form-control'>
+
+  </div>
+  <button class="btn" type="submit">Add Book</button>
+</form>

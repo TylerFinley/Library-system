@@ -50,5 +50,4 @@ class Patron
     DB.exec("DELETE FROM patrons WHERE id = #{self.id()};")
   end
 
-
 end

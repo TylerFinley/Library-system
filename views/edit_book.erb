@@ -1,0 +1,23 @@
+<h2>Update <%= @book.title() %> in catalog</h2>
+
+<form action="/books/<%= @book.id() %>" method="post">
+  <div class='form-group'>
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="title">Edit book title:</label>
+    <input type="text" name="title" id="title">
+
+    <label for="author">Edit book author:</label>
+    <input type="text" name="author" id="author">
+
+    <label for="genre">Edit book genre:</label>
+    <input type="text" name="genre" id="genre">
+  </div>
+  <button class="btn" type="submit">Update Book</button>
+</form>
+
+<form action="/books/<%= @book.id() %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+
+  <button type="submit">Delete Book</button>
+</form>
